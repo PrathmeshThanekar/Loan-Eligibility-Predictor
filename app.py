@@ -166,9 +166,9 @@ if st.button("Predict Loan Eligibility", type="primary"):
         
         # Load the models
         try:
-            eligibility_model = joblib.load('models/eligibility_model.joblib')
-            interest_model = joblib.load('models/interest_model.joblib')
-            tenure_model = joblib.load('models/tenure_model.joblib')
+            eligibility_model = joblib.load('eligibility_model.joblib')
+            interest_model = joblib.load('interest_model.joblib')
+            tenure_model = joblib.load('tenure_model.joblib')
         except FileNotFoundError as e:
             st.error(f"Model files not found. Please run 'python save_models.py' first.")
             st.stop()
