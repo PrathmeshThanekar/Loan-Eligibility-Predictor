@@ -15,15 +15,13 @@ st.set_page_config(
     layout="wide"
 )
 
-# Check if models exist
-if not os.path.exists('models/eligibility_model.joblib'):
-    st.error("""
-    Models not found! Please run the following commands first:
-    ```
-    python save_models.py
-    ```
-    """)
-    st.stop()
+# Models
+
+eligibility_model = joblib.load("eligibility_model.joblib")
+interest_model = joblib.load("interest_model.joblib")
+tenure_model = joblib.load("tenure_model.joblib")
+label_encoders = joblib.load("label_encoders.joblib")
+
 
 # Custom CSS for better styling
 st.markdown("""
