@@ -145,11 +145,9 @@ if st.button("Predict Loan Eligibility", type="primary"):
         input_df = prepare_input_data()
         
         # Load label encoders
-        try:
-            label_encoders = joblib.load('models/label_encoders.joblib')
-        except FileNotFoundError:
-            st.error("Label encoders not found. Please run 'python save_models.py' first.")
-            st.stop()
+        
+        label_encoders = joblib.load('label_encoders.joblib')
+        
             
         # Apply label encoding to categorical columns
         categorical_columns = [
